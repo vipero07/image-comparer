@@ -13,7 +13,8 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		paths: {
-			base: '/image-comparer'
+			base: '/image-comparer',
+			assets: '/image-comparer',
 		},
 		adapter: adapter({
 			// default options are shown
