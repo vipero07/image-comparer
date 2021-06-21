@@ -9,10 +9,11 @@
 	let timer;
 
 	$: initImage = leftImages[currentIndex];
-	$: imageTitle = leftImages.length !== 0 ? leftImages[currentIndex].name : '';
-	$: rightIndex = imageTitle !== '' ? rightImages.findIndex((x) => x.name === imageTitle) : 0;
+	$: imageTitle = leftImages.length !== 0 ? leftImages[currentIndex].name.split('.')[0] : '';
+	$: rightIndex =
+		imageTitle !== '' ? rightImages.findIndex((x) => x.name.split('.')[0] === imageTitle) : 0;
 	$: compareImage = rightImages[rightIndex];
-	$: timeout >= 0 && leftImages.length && rightImages.length && setTimer();
+	$: timeout >= 0 && currentIndex >= 0 && leftImages.length && rightImages.length && setTimer();
 
 	const setTimer = () => {
 		if (timer) {
@@ -27,7 +28,6 @@
 			} else {
 				currentIndex = 0;
 			}
-			setTimer.call();
 		}, timeout * 1000);
 	};
 
