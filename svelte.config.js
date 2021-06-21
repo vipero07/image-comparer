@@ -12,6 +12,9 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
+		paths: {
+			base: '/image-comparer'
+		},
 		adapter: adapter({
 			// default options are shown
 			pages: 'docs',
